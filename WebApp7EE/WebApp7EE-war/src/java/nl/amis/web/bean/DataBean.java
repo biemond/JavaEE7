@@ -39,7 +39,7 @@ public class DataBean implements Serializable {
 
     @Size(min = 2, max = 50)
     @Pattern(regexp = "[A-Za-z ]*", message = "locationValidation")
-    private String departmentLocation = "fieldCDI 2";
+    private String departmentLocation = "fieldCDI";
 
     public String getDepartmentName() {
         return departmentName;
