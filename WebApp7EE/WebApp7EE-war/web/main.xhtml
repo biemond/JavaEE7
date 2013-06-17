@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>JSF2.2 Faces</title>
+    </h:head>
+    <h:body>
+        <h2>JSF2.2 Faces</h2>
+        <h:form>
+            <h:messages/>
+            <h:panelGrid id="grid" columns="1">
+               <h:panelGroup>
+                <h:outputLabel for="departmentName" value="department Name" />
+                <h:inputText id="departmentName" 
+                             value="#{dataBean.departmentName}"  />
+                <h:message for="departmentName"/>
+               </h:panelGroup> 
+                <h:panelGroup> 
+                <h:outputLabel for="deparmentLocation" value="department Location" />
+                <h:inputText id="deparmentLocation" 
+                             value="#{dataBean.departmentLocation}" />
+                 <h:message for="deparmentLocation"/>
+                </h:panelGroup> 
+                <h:commandButton value="Submit"/>
+                <h:commandButton value="Test JPA Validator"
+                                 actionListener="#{hrBean.addDepartment}"/>
+                <h:commandButton value="Send JMS message"
+                                 actionListener="#{dataBean.sendMessage}"/>
+                
+                <h:commandButton id="start1" value="Enter Flow1" action="flow1"/>
+            </h:panelGrid>
+            <h:dataTable id="table1" value="#{hrBean.allDepartments}" 
+                         var="row" 
+                         border="1">
+                <f:facet name="header">
+                    <h:outputText value="All departments" />
+                </f:facet>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Id" />
+                    </f:facet>
+                    <h:outputText value="#{row.departmentId}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{row.departmentName}" />
+                </h:column>
+
+            </h:dataTable>
+
+        </h:form>
+    </h:body>
+</html>
